@@ -8,5 +8,7 @@
     <color name="button">#789134</color>
     <color name="overLayActionBr">#0e0d0e</color>
     <color name="transparent">#80001f3f</color>
+    <color name="transparent2">#8012F245</color>
+    <color name="progressbar">#125008</color>
 
 </resources>

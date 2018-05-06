@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/brooke_lark_186926_unsplash"
+    tools:context="com.example.majid.forurcomfy.ThanksForShoppingActivity">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_centerInParent="true">
+    <io.netopen.hotbitmapgg.library.view.RingProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:max="100"
+        app:ringColor="@color/colorPrimary"
+        app:ringProgressColor="@color/transparent2"
+        app:ringWidth="20dp"
+        app:style="FILL"
+        app:textColor="@color/font_color"
+        app:textIsShow="true"
+        app:textSize="25dp"
+    />
+
+    <io.netopen.hotbitmapgg.library.view.RingProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:max="100"
+        app:ringColor="@color/colorPrimaryDark"
+        app:ringProgressColor="@color/colorAccent"
+        app:ringWidth="20dp"
+        app:style="STROKE"
+        app:textColor="@color/font_color"
+        app:textIsShow="true"
+        app:textSize="25dp" />
+</LinearLayout>
+</RelativeLayout>
+
+
+
+

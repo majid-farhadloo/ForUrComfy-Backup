@@ -3,6 +3,7 @@ package com.example.majid.forurcomfy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ public class CheckoutActivity extends AppCompatActivity {
             price = getIntent().getExtras().getString(PRICE);
 
         }
-        textDes.setText(price);
+        textDes.setText(price + "$");
         payBtn.setText(String.format("Payer %s", textDes.getText()));
 
         cardform.setPayBtnClickListner(new OnPayBtnClickListner() {
@@ -36,6 +37,16 @@ public class CheckoutActivity extends AppCompatActivity {
             public void onClick(Card card) {
                 Toast.makeText(CheckoutActivity.this, "Number :" + card.getNumber() +
                         "|CVC: " +card.getCVC(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent checkout = new Intent(CheckoutActivity.this,
+                        ThanksForShoppingActivity.class);
+                CheckoutActivity.this.startActivity(checkout);
+                finish();
+
             }
         });
     }

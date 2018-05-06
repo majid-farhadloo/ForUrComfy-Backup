@@ -26,12 +26,12 @@ public interface APIService {
     @GET("/food_menu")
     Call<List<FoodMenu>> reqData();
 
-    @POST("/order")
-    @FormUrlEncoded
-    Call<OrderProcess> request(@Field("food") List<ShoppingItem> foods,
-                               @Field("cell") String cell,
-                               @Field("location") String address,
-                               @Field("name") Post current);
+        @POST("/order")
+        @FormUrlEncoded
+        Call<OrderProcess> request(@Field("food") List<ShoppingItem> foods,
+                                   @Field("cell") String cell,
+                                   @Field("location") String address,
+                                   @Field("name") Post current);
 
     @GET("/delivery/request")
     Call<List<ShoppingItem>> reqDelivery();

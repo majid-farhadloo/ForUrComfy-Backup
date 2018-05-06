@@ -40,7 +40,7 @@
         <activity android:name=".OrderActivity" />
         <![CDATA[
         />
-        ]]><!-- <activity android:name=".JasonShoppingCart.CatalogActivity" /> -->
+        ]]> <!-- <activity android:name=".JasonShoppingCart.CatalogActivity" /> -->
         <!-- <activity android:name=".JasonShoppingCart.ProductDetailsActivity" /> -->
         <!-- <activity android:name=".JasonShoppingCart.ShoppingCartActivity" /> -->
         <!-- <activity android:name=".PaymentActivity" -->
@@ -76,6 +76,7 @@
         <activity android:name=".CheckoutActivity">
             android:parentActivityName=".Home"
         </activity>
+        <activity android:name=".ThanksForShoppingActivity"></activity>
     </application>
 
 </manifest>

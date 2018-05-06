@@ -49,4 +49,6 @@ dependencies {
     compile 'com.craftman.cardform:cardform:0.0.2'
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    compile 'com.github.HotBitmapGG:RingProgressBar:V1.2.2'
+
 }
