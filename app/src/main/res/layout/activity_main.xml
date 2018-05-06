@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background='@drawable/bg1'
+    android:minHeight="112dp"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.example.majid.forurcomfy.MainActivity">
+
+    <Button
+        android:id="@+id/loginMain"
+        android:layout_width="212dp"
+        android:layout_height="80dp"
+        android:alpha="0.7"
+        android:layout_below="@+id/registerMain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/round_button"
+        android:fontFamily="cursive"
+        android:text="Log In"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/font_color"
+        tools:targetApi="jelly_bean" />
+
+    <Button
+        android:id="@+id/registerMain"
+        android:layout_width="212dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/loginMain"
+        android:background="@drawable/round_button"
+        android:alpha="0.7"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/loginMain"
+        android:layout_marginTop="16dp"
+        android:fontFamily="cursive"
+        android:textColor="@color/font_color"
+        android:text="Register"
+
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:targetApi="jelly_bean" />
+</RelativeLayout>

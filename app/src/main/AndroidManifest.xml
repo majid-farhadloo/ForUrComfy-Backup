@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.majid.forurcomfy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".RegisterActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".UserAreaActivity" />
+        <activity
+            android:name=".ForgotPassActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".DetailActivity"
+            android:parentActivityName=".UserAreaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UserAreaActivity" />
+        </activity>
+        <!-- <activity android:name=".Extras.VeggiMenuActivity" /> -->
+        <activity android:name=".OrderActivity" />
+        <![CDATA[
+        />
+        ]]><!-- <activity android:name=".JasonShoppingCart.CatalogActivity" /> -->
+        <!-- <activity android:name=".JasonShoppingCart.ProductDetailsActivity" /> -->
+        <!-- <activity android:name=".JasonShoppingCart.ShoppingCartActivity" /> -->
+        <!-- <activity android:name=".PaymentActivity" -->
+        <!-- android:parentActivityNamYesNoDeliveryActivityvity"/> -->
+        <!-- <activity android:name=".CatalogActivity" /> -->
+        <!-- <activity android:name=".ProductDetailsActivity" /> -->
+        <!-- <activity android:name=".ShoppingCartActivity" /> -->
+
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DeliverGuyActivity" />
+        <activity
+            android:name=".YesNoDeliveryActivity"
+            android:parentActivityName=".ShoppingCart.ShoppingCartWindow" />
+        <activity
+            android:name=".ReturnActivity"
+            android:parentActivityName=".Home" />
+
+        <service
+            android:name=".Services.MyService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".ShoppingCart.ShoppingCartWindow" />
+        <activity
+            android:name=".RequestDeliveryItem"
+            android:parentActivityName=".YesNoDeliveryActivity" />
+        <!-- <activity android:name=".ShoppingCart.ShoppingCartWindow" /> -->
+        <!-- <activity android:namRequestDeliveryItemvery"></activity> -->
+
+        <activity android:name=".CheckoutActivity">
+            android:parentActivityName=".Home"
+        </activity>
+    </application>
+
+</manifest>
