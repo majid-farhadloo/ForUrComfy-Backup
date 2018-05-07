@@ -22,36 +22,40 @@ router.post('/', function(req, res) {
     // res.send('respond with a resource');
     // var user  = req.session.user;
     var newOrder = new order();
-    var foodName = req.body.foodName;
-    var price = req.body.price;
-    var quantity = req.body.quantity;
-    var name = req.body.firstname;
+    // var food = new order.food();
+    var food = JSON.parse(req.body.food);
+    // var price = req.body.price;
+    // var quantity = req.body.quantity;
+    var name = req.body.name;
     var location = req.body.location;
-    newOrder.foodName = foodName;
-    newOrder.price = price;
-    newOrder.quantity = quantity;
-    newOrder.currentUser = name;
+    var cell = req.body.cell;
+    console.log("console log : " + food);
+    /*
+    var jsonStr = '{"theTeam":[{"teamId":"1","status":"pending"},{"teamId":"2","status":"member"},{"teamId":"3","status":"member"}]}';
+
+var obj = JSON.parse(jsonStr);
+obj['theTeam'].push({"teamId":"4","status":"pending"});
+jsonStr = JSON.stringify(obj);
+    */
+    console.log("type = " + typeof(food));
+    newOrder.name = name;
     newOrder.time = Date.now();
     newOrder.completed = false;
     newOrder.location = location;
-    newOrder.cell = req.body.cell;
+    newOrder.cell = cell;
+    console.log(newOrder);
     newOrder.save(function(err,savedOrder){
-        if(!req.session.user)
-        {
-          return res.json({"result":false, "message":"User not logged in"});
-        }
+        // if(!req.session.user)
+        // {
+        //   return res.json({"result":false, "message":"User not logged in"});
+        // }
         if(err){
             console.log(err);
-            return res.json({"result":false, "message":"Failed to save order"});
+            return res.status(400).json({"result":false, "message":"Failed to save order"});
         }
-        return res.json({"result":true,
-                          "message":"Order is being processed!",
-                          "Order ID":savedOrder['_id'],
-                          "Price":savedOrder['price'],
-                          "Quantity":savedOrder['quantity'],
-                          "Deliver to":savedOrder['location'],
-                          "Total Price": savedOrder['price']*savedOrder['quantity']
-                        });
+        return res.status(200).json({
+                          "message":"Order is being processed!"
+                          });
     });
 
 });

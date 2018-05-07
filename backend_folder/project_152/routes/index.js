@@ -59,19 +59,19 @@ router.post('/register',function(req,res)
     User.findOne({email:email},function(err,user){
         if(err) {
             console.log(err);
-            res.json(err);
+            res.status(400).json(err);
         } else {
             if(user==null) {
                 newUser.save(function(err,savedUser){
                     if(err){
                         console.log(err);
-                        return res.json({"result":false, "message":"Failed creating an account"});
+                        return res.status(400).json({"result":false, "message":"Failed creating an account"});
                     }
-                    return res.json({"result":true, "message":"Account Registered!"});
+                    return res.status(200).json({"result":true, "message":"Account Registered!"});
                 });
             }else{
                 console.log(user);
-                res.json({"result":false, "message":"Email already exists"});
+                res.status(400).json({"result":false, "message":"Email already exists"});
             }
         }
     });
@@ -81,8 +81,8 @@ router.post('/register',function(req,res)
 //POST REQUEST FOR FINDING USER
 router.post('/login',bruteforce.prevent,function(req,res,next)
 {
-  if(!req.body.email) return res.json({"result":false, "message":"Email required"});
-  if(!req.body.password) return res.json({"result":false, "message":"Password required"});
+  if(!req.body.email) return res.status(400).json({"result":false, "message":"Email required"});
+  if(!req.body.password) return res.status(400).json({"result":false, "message":"Password required"});
   var email = req.body.email;
   var password = md5(req.body.password);
 
@@ -94,19 +94,18 @@ router.post('/login',bruteforce.prevent,function(req,res,next)
         //if user exists
         console.log(user);
         if(user) {
-						req.session.user = user;
-            return res.json({
+						// req.session.user = user;
+            return res.status(200).json({
                 "result": true,
                 "message": "Login success",
-                "data": {
-                    "firstname": user['firstname'],
-                    "lastname": user['lastname'],
-                    "cell": user['cell']
-                }
+                "email": user['email'],
+                "firstname": user['firstname'],
+                "lastname": user['lastname'],
+                "cell": user['cell']
           });
         }
         // if user doesn't exist
-        res.json({
+        res.status(400).json({
             "result": false,
             "message": "Login Failed"
         });
@@ -165,7 +164,7 @@ router.post('/finding_pwd', function(req, res)
         } else {
             if(user==null) {
                 console.log("Email doesn't exist");
-                res.json({"result":false, "message":"Email doesn't exist"});
+                res.status(400).json({"result":false, "message":"Email doesn't exist"});
             }else{
                 User.updateOne(query, newVal, function(err, res) {
                     if(err) {
@@ -200,10 +199,10 @@ router.post('/finding_pwd', function(req, res)
             console.log(error);
         } else {
             console.log('Email sent: ' + info.response);
-            return res.json({"result":true, "message":"Email sent to " + user_email});
+            return res.status(200).json({"result":true, "message":"Email sent to " + user_email});
         }
     });
-        
+
 });
 
 module.exports = router;
