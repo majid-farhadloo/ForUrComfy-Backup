@@ -30,6 +30,8 @@ import com.example.majid.forurcomfy.Remote.APIService;
 import com.example.majid.forurcomfy.Remote.ApiUtlis;
 import com.example.majid.forurcomfy.model.Request;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -45,6 +47,9 @@ public class ShoppingCartWindow extends AppCompatActivity {
     SqliteHelper dbhelper;
     int totalAmount = 0;
     ArrayList<ShoppingItem> items;
+   //String foods;
+   ArrayList<JSONObject> foods = new ArrayList<>(5);
+;   // ArrayList<JSONObject> foods;
     ListView cartList;
     String msg;
 
@@ -53,7 +58,13 @@ public class ShoppingCartWindow extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart_window);
+        //alwin = awesome
         dbhelper = new SqliteHelper(getApplicationContext(), "ShoppingCart.db", null, 1);
+        for(int i=0;i<foods.size();i++){
+            JSONObject food = dbhelper.getJSonResult();
+            foods.add(food);
+        }
+
         SQLiteDatabase db = dbhelper.getWritableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM SHOPPING_CART", null);
@@ -67,7 +78,7 @@ public class ShoppingCartWindow extends AppCompatActivity {
         cartList.setAdapter(listAdapter);
 
         int total = dbhelper.getTotalPrice();
-
+        //foods = cartList;
         // Create the list
 //        ListView listViewCatalog = (ListView) findViewById(R.id.ListViewCatalog);
 //        listViewCatalog.setAdapter(new ShoppingCartAdapter(items, getLayoutInflater(), false));
@@ -182,8 +193,8 @@ public class ShoppingCartWindow extends AppCompatActivity {
                 APIService mAPIService = ApiUtlis.getAPIService();
 
 
-                mAPIService.request(items, Current.currentUser.getCell(),
-                        edtAddress.getText().toString(), Current.currentUser).enqueue(new Callback<OrderProcess>() {
+                mAPIService.request(foods, Current.currentUser.getEmail(),
+                       Current.currentUser.getCell(), edtAddress.getText().toString()).enqueue(new Callback<OrderProcess>() {
                     @Override
                     public void onResponse(Call<OrderProcess> call, Response<OrderProcess> response) {
                         if (response.isSuccessful()) {

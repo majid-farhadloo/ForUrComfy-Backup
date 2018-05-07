@@ -20,6 +20,7 @@ import com.example.majid.forurcomfy.Remote.APIService;
 import java.util.ArrayList;
 import java.util.List;
 
+import LayOutReturn.DeliveryItem;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,16 +28,17 @@ import retrofit2.Response;
 
 public class newShoppingCartAdapter extends ArrayAdapter {
     Context context;
-    List<ShoppingItem> items = new ArrayList<>();
+//    List<ShoppingItem> items = new ArrayList<>();
+    List<DeliveryItem> items = new ArrayList<>();
     List<Food> foods;
     private APIService mAPIService;
 
-    public newShoppingCartAdapter(Context context, List<ShoppingItem> items){
+    public newShoppingCartAdapter(Context context, List<DeliveryItem> items){
         super(context, 0, items);
         this.context = context;
         this.items = items;
     }
-    public newShoppingCartAdapter(Context context, List<ShoppingItem> items,APIService mAPIService){
+    public newShoppingCartAdapter(Context context, List<DeliveryItem> items,APIService mAPIService){
         super(context, 0, items);
         this.context = context;
         this.items = items;
@@ -59,7 +61,7 @@ public class newShoppingCartAdapter extends ArrayAdapter {
             @Override
             public void onClick(View v) {
 
-                mAPIService.claimed(items.get(position).get_id()).enqueue(new Callback<String>() {
+                mAPIService.claimed(items.get(position).getId()).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
                         Log.d("+++", "Success");
@@ -79,7 +81,7 @@ public class newShoppingCartAdapter extends ArrayAdapter {
         ShoppingItem currentItem = (ShoppingItem) getItem(position);
         //Food currentFood = (Food) getItem(position);
         List<Food> currentFoods = currentItem.getFood();
-        ((TextView) listItemView.findViewById(R.id.name))
+        ((TextView) listItemView.findViewById(R.id.currentUser))
                 .setText( currentItem.getName());
 
         ((TextView) listItemView.findViewById(R.id.id))

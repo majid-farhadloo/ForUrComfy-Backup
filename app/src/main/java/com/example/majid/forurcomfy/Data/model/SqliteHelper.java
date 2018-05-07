@@ -97,9 +97,13 @@ public class SqliteHelper extends SQLiteOpenHelper {
         JSONObject jsonObject = new JSONObject();
         Cursor cursor = db.rawQuery("SELECT * FROM SHOPPING_CART", null);
         while(cursor.moveToNext()){
-            result += "{\"_id:\" \"" + cursor.getString(0) + "\", \"itemId\": \"" + cursor.getString(1) + "\", \"itemName\": \""
-                    + cursor.getString(2) + "\" ,\"category\": \"" + cursor.getString(3) + "\", \"description\": \""
-                    + cursor.getString(4) + "\",\"price\": \"" + cursor.getString(5) + "\"}";
+            result += "{\"_id:\" \"" + cursor.getString(0)
+//                    + "\", \"itemId\": \"" + cursor.getString(1)
+                    + "\", \"itemName\": \"" + cursor.getString(2)
+//                    + "\" ,\"category\": \"" + cursor.getString(3)
+//                    + "\", \"description\": \"" + cursor.getString(4)
+                    + "\",\"price\": \""
+                    + cursor.getString(5) + "\"}";
             try {
                 jsonObject = new JSONObject(result);
                 Log.d("SqliteHelper", jsonObject.toString());
@@ -119,13 +123,13 @@ public class SqliteHelper extends SQLiteOpenHelper {
 
             return "FoodMenu{" +
                     "_id='" + cursor.getString(0) + '\'' +
-                    ", itemId=" + cursor.getString(1) +
+//                    ", itemId=" + cursor.getString(1) +
                     ", itemName='" + cursor.getString(2) + '\'' +
-                    ", category='" + cursor.getString(3) + '\'' +
-                    ", description='" + cursor.getString(4) + '\'' +
-                    ", sortPosition=" + cursor.getString(5) +
+//                    ", category='" + cursor.getString(3) + '\'' +
+//                    ", description='" + cursor.getString(4) + '\'' +
+//                    ", sortPosition=" + cursor.getString(5) +
                     ", price=" + cursor.getString(6) +
-                    ", image='" + cursor.getString(7) + '\'' +
+//                    ", image='" + cursor.getString(7) + '\'' +
                     '}';
         }
         return result;
