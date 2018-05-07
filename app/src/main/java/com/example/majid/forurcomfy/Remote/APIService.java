@@ -30,7 +30,7 @@ public interface APIService {
 
         @POST("/order")
         @FormUrlEncoded
-        Call<OrderProcess> request(@Field("food") List<JSONObject> foods,
+        Call<OrderProcess> request(@Field("food") JSONObject foods,
                                    @Field("name") String current,
                                    @Field("cell") String cell,
                                    @Field("location") String location);

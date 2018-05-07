@@ -82,12 +82,12 @@ public class Post {
         this.reTypePassword = reTypePassword;
     }
 
-    public Post(String fname, String lname, String email, String password) {
-        this.firstname = fname;
-        this.lastname = lname;
+    public Post(String firstname, String lastname, String cell, String email) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.cell = cell;
         this.email = email;
-        this.password = password;
-       // this.reTypePassword = reTypepassword;
+      //  this.password = password;
     }
 
     public String getFirstname() {

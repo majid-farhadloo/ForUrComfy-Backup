@@ -50,6 +50,7 @@ public class ShoppingCartWindow extends AppCompatActivity {
    //String foods;
    ArrayList<JSONObject> foods = new ArrayList<>(5);
 ;   // ArrayList<JSONObject> foods;
+    JSONObject food;
     ListView cartList;
     String msg;
     Cursor cursor;
@@ -67,10 +68,12 @@ public class ShoppingCartWindow extends AppCompatActivity {
         setContentView(R.layout.activity_shopping_cart_window);
         //alwin = awesome
         dbhelper = new SqliteHelper(getApplicationContext(), "ShoppingCart.db", null, 1);
-        for(int i=0;i<foods.size();i++){
+
+        //for(int i=0;i<foods.size();i++){
             JSONObject food = dbhelper.getJSonResult();
-            foods.add(food);
-        }
+        Log.i("shoppingcart","food array is " + food);
+            //foods.add(food);
+        //}
 
         SQLiteDatabase db = dbhelper.getWritableDatabase();
 
@@ -200,7 +203,7 @@ public class ShoppingCartWindow extends AppCompatActivity {
                 APIService mAPIService = ApiUtlis.getAPIService();
 
 
-                mAPIService.request(foods, Current.currentUser.getEmail(),
+                mAPIService.request(food, Current.currentUser.getEmail(),
                        Current.currentUser.getCell(), edtAddress.getText().toString()).enqueue(new Callback<OrderProcess>() {
                     @Override
                     public void onResponse(Call<OrderProcess> call, Response<OrderProcess> response) {

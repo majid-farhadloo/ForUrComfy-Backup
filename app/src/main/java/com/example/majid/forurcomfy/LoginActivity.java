@@ -78,7 +78,9 @@ public class LoginActivity extends AppCompatActivity {
 //                            Log.i(TAG, "post submitted to API." + response.body().toString());
                             Intent LoginIntent = new Intent(LoginActivity.
                                     this, Home.class);
-                            Current.currentUser = new Post(email);
+
+                            Current.currentUser = new Post(response.body().getFirstname(),
+                                    response.body().getlastname(),response.body().getCell(),response.body().getEmail());
                             LoginIntent.putExtra("email", email);
                             LoginActivity.this.startActivity(LoginIntent);
                             finish();

@@ -130,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
-    public void sendPost(final String fname, final String lname, String cellphone, final String email,
+    public void sendPost(final String fname, final String lname, final String cellphone, final String email,
                          String password) {
         registerService.savePostRegister(fname,lname,cellphone,email,
                 password).enqueue(new Callback<Post>() {
@@ -144,7 +144,8 @@ public class RegisterActivity extends AppCompatActivity {
 //                            Log.i(TAG, "post submitted to API." + response.body().toString());
                     Intent homeIntent = new Intent(RegisterActivity.
                             this, Home.class);
-                    Current.currentUser = new Post(email);
+                    Current.currentUser = new Post(fname,lname,cellphone,email);
+
                    // registerIntent.putExtra("email", email);
                     RegisterActivity.this.startActivity(homeIntent);
                     finish();
