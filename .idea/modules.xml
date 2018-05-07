@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ForUrComfy.iml" filepath="$PROJECT_DIR$/ForUrComfy.iml" />
+      <module fileurl="file://C:\Users\yesol\Documents\ForUrComfyBackup\ForUrComfy.iml" filepath="C:\Users\yesol\Documents\ForUrComfyBackup\ForUrComfy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ForUrComfyBackup.iml" filepath="$PROJECT_DIR$/ForUrComfyBackup.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

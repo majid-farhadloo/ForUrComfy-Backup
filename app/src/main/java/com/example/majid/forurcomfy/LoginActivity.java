@@ -80,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                                     this, Home.class);
                             Current.currentUser = new Post(email);
                             LoginIntent.putExtra("email", email);
-
+                            LoginActivity.this.startActivity(LoginIntent);
+                            finish();
                         }
                     }
 
