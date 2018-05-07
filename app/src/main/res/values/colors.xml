@@ -10,5 +10,6 @@
     <color name="transparent">#80001f3f</color>
     <color name="transparent2">#8012F245</color>
     <color name="progressbar">#125008</color>
+    <color name="pink">#000fff</color>
 
 </resources>

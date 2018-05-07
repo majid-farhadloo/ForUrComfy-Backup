@@ -3,6 +3,7 @@ package com.example.majid.forurcomfy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -24,6 +25,8 @@ public class DeliverGuyActivity extends AppCompatActivity implements
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (switchCase.isChecked()) {
+             String TAG = "MyServiceWorks";
+            Log.i(TAG, "this works");
             Intent requestDelivery = new Intent(DeliverGuyActivity.this,RequestDeliveryItem.class);
             DeliverGuyActivity.this.startActivity(requestDelivery);
             finish();

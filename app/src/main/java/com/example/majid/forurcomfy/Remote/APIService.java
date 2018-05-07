@@ -36,9 +36,13 @@ public interface APIService {
                                    @Field("location") String location);
 
     @GET("/delivery/request")
-    Call<List<DeliveryItem>> reqDelivery();
+    Call<DeliveryItem> reqDelivery();
 
     @POST("/delivery/claim")
     Call<String> claimed(@Field("_id") String id);
+
+    @POST("/order")
+    @FormUrlEncoded
+    Call<OrderProcess> forgotPass(@Field("user_email") String email);
 
 }

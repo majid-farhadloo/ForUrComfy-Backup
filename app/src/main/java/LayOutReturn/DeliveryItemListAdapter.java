@@ -16,13 +16,13 @@ import java.util.List;
 
 public class DeliveryItemListAdapter extends ArrayAdapter<DeliveryItem> {
 
-    List<DeliveryItem> mDataItems;
+    DeliveryItem mDataItems;
     LayoutInflater mInflater;
     private APIService mAPIService;
 
 
-    public DeliveryItemListAdapter(Context context, List<DeliveryItem> objects,APIService mAPIService) {
-        super(context, R.layout.activity_d_r, objects);
+    public DeliveryItemListAdapter(Context context, DeliveryItem objects,APIService mAPIService) {
+        super(context, R.layout.activity_d_r, (List<DeliveryItem>) objects);
 
         mDataItems = objects;
         mInflater = LayoutInflater.from(context);
@@ -42,16 +42,17 @@ public class DeliveryItemListAdapter extends ArrayAdapter<DeliveryItem> {
         TextView tvLocation = (TextView) convertView.findViewById(R.id.location);
         TextView tvCell = (TextView) convertView.findViewById(R.id.cell);
         Button tvId = (Button) convertView.findViewById(R.id.id);
-        TextView tvQuantity = (TextView) convertView.findViewById(R.id.quantity);
+       // TextView tvQuantity = (TextView) convertView.findViewById(R.id.quantity);
 
 
-        DeliveryItem item = mDataItems.get(position);
+
+        DeliveryItem item = mDataItems;
 
         tvName.setText(item.getName());
         tvLocation.setText(item.getLocation());
         tvCell.setText(item.getCell());
         tvId.setText(item.getId());
-        tvQuantity.setText(item.getName());
+        //tvQuantity.setText(item.getName());
 //        imageView.setImageResource(R.drawable.apple_pie);
 
 //        InputStream inputStream = null;

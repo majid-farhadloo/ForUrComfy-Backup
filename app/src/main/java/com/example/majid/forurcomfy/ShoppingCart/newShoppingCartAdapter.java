@@ -93,8 +93,8 @@ public class newShoppingCartAdapter extends ArrayAdapter {
         ((TextView) listItemView.findViewById(R.id.cell))
                 .setText( currentItem.getCell());
 
-        ((TextView) listItemView.findViewById(R.id.quantity))
-                .setText(currentFoods.size());
+        //((TextView) listItemView.findViewById(R.id.quantity))
+          //      .setText(currentFoods.size());
 
 
 //        String x = "x " + String.valueOf(currentItem.get_id());
